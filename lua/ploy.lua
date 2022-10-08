@@ -86,7 +86,7 @@ local theme = lush(function()
     MatchParen   { fg = IncSearch.bg, gui = "bold" }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     -- ModeMsg      { }, -- 'showmode' message (e.g., "-- INSERT -- ")
     -- MsgArea      { }, -- Area for messages and cmdline
-    -- MsgSeparator { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
+    MsgSeparator { VertSplit }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     MoreMsg      { fg = colors.green, gui = "bold" }, -- |more-prompt|
     Pmenu        { NormalFloat }, -- Popup menu: Normal item.
     PmenuSel     { NormalFloat, bg = NormalFloat.bg.li(9)}, -- Popup menu: Selected item.
