@@ -104,7 +104,7 @@ local theme = lush(function()
     TabLineFill  { StatusLineNC }, -- Tab pages line, where there are no labels
     TabLineSel   { gui = "bold" }, -- Tab pages line, active tab page label
     Title        { fg = colors.blue, gui = "bold" }, -- Titles for output from ":set all", ":autocmd" etc.
-    Visual       { bg = colors.blue.da(75) }, -- Visual mode selection
+    Visual       { bg = colors.cyan.da(78) }, -- Visual mode selection
     -- VisualNOS    { }, -- Visual mode selection when vim is "Not Owning the Selection".
     WarningMsg   { fg = colors.yellow }, -- Warning messages
     Winseparator { VertSplit }, -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
@@ -120,7 +120,7 @@ local theme = lush(function()
 
     Comment        { fg = colors.bg.li(32), gui = "italic" }, -- Any comment
 
-    Constant       { fg = colors.bright_green }, -- (*) Any constant
+    Constant       { fg = colors.bright_cyan }, -- (*) Any constant
     -- String         {  }, --   A string constant: "this is a string"
     -- Character      { }, --   A character constant: 'c', '\n'
     -- Number         { }, --   A number constant: 234, 0xff
@@ -128,9 +128,9 @@ local theme = lush(function()
     -- Float          { }, --   A floating point constant: 2.3e10
 
     Identifier     { fg = colors.fg }, -- (*) Any variable name
-    Function       { fg = colors.fg }, --   Function name (also: methods for classes)
+    Function       { }, --   Function name (also: methods for classes)
 
-    Statement      { fg = colors.blue }, -- (*) Any statement
+    Statement      { fg = colors.blue, gui = "bold" }, -- (*) Any statement
     -- Conditional    { }, --   if, then, else, endif, switch, etc.
     -- Repeat         { }, --   for, do, while, etc.
     -- Label          { }, --   case, default, etc.
@@ -144,7 +144,7 @@ local theme = lush(function()
     -- Macro          { }, --   Same as Define
     -- PreCondit      { }, --   Preprocessor #if, #else, #endif, etc.
 
-    Type           { fg = colors.yellow }, -- (*) int, long, char, etc.
+    Type           { fg = colors.yellow.da(10) }, -- (*) int, long, char, etc.
     -- StorageClass   { }, --   static, register, volatile, etc.
     -- Structure      { }, --   struct, union, enum, etc.
     -- Typedef        { }, --   A typedef
@@ -178,7 +178,7 @@ local theme = lush(function()
     -- See :h diagnostic-highlights, some groups may not be listed, submit a PR fix to lush-template!
     --
     DiagnosticError            { fg = colors.red } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    DiagnosticWarn             { fg = colors.yellow } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticWarn             { fg = colors.bright_yellow } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     DiagnosticInfo             { fg = colors.bright_green } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     DiagnosticHint             { fg = colors.bright_blue } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     DiagnosticVirtualTextError { DiagnosticError, gui = "italic" } , -- Used for "Error" diagnostic virtual text.
@@ -219,8 +219,8 @@ local theme = lush(function()
     -- TSException          { } , -- Exception related keywords: `try`, `except`, `finally` in Python.
     -- TSField              { } , -- Object and struct fields.
     -- TSFloat              { } , -- Floating-point number literals.
-    -- TSFunction           { } , -- Function calls and definitions.
-    -- TSFuncBuiltin        { } , -- Built-in functions: `print` in Lua.
+    TSFunction           { gui = "NONE" } , -- Function calls and definitions.
+    TSFuncBuiltin        { } , -- Built-in functions: `print` in Lua.
     -- TSFuncMacro          { } , -- Macro defined functions (calls and definitions): each `macro_rules` in Rust.
     -- TSInclude            { } , -- File or module inclusion keywords: `#include` in C, `use` or `extern crate` in Rust.
     -- TSKeyword            { } , -- Keywords that don't fit into other categories.
