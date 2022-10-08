@@ -10,7 +10,7 @@ local colors = {
   red = hsl("#ff968c"),
   green = hsl("#61957f"),
   yellow = hsl("#ffc591"),
-  blue = hsl("#8db4d4"),
+  blue = hsl("#8db4d4").de(30),
   magenta = hsl("#de9bc8"),
   cyan = hsl("#7bb099"),
   white = hsl("#d1d1d1"),
@@ -58,10 +58,10 @@ local theme = lush(function()
     CursorColumn { CursorLine }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     ColorColumn  { bg = colors.bg.saturation(2).lightness(20) }, -- Columns set with 'colorcolumn'
     Directory    { gui = "bold" }, -- Directory names (and other special names in listings)
-    DiffAdd      { bg = colors.green }, -- Diff mode: Added line |diff.txt|
-    DiffChange   { bg = colors.bright_blue }, -- Diff mode: Changed line |diff.txt|
-    DiffDelete   { bg = colors.red }, -- Diff mode: Deleted line |diff.txt|
-    DiffText     { bg = colors.blue }, -- Diff mode: Changed text within a changed line |diff.txt|
+    DiffAdd      { bg = colors.green.da(30) }, -- Diff mode: Added line |diff.txt|
+    DiffChange   { bg = colors.blue.da(70) }, -- Diff mode: Changed line |diff.txt|
+    DiffDelete   { bg = colors.red.de(60).da(40) }, -- Diff mode: Deleted line |diff.txt|
+    DiffText     { bg = colors.blue.da(50) }, -- Diff mode: Changed text within a changed line |diff.txt|
     NonText      { fg = colors.bg.li(20) }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
     EndOfBuffer  { NonText }, -- Filler lines (~) after the end of the buffer. By default, this is highlighted like |hl-NonText|.
     SpecialKey   { NonText, gui = 'italic' }, -- Unprintable characters: text displayed differently from what it really is. But not 'listchars' whitespace. |hl-Whitespace|
