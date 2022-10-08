@@ -74,7 +74,7 @@ local theme = lush(function()
     Error        { fg = colors.red }, -- Any erroneous construct
     ErrorMsg     { Error }, -- Error messages on the command line
     LineNr       { fg = colors.bg.li(30) }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-    CursorLineNr { Normal, gui = "bold" }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+    CursorLineNr { CursorLine, gui = "bold" }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
     VertSplit    { fg = LineNr.fg }, -- Column separating vertically split windows
     Folded       { fg = colors.bg.li(64), bg = colors.bg.li(14) }, -- Line used for closed folds
     FoldColumn   { LineNr, gui = "bold" }, -- 'foldcolumn'
