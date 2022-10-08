@@ -120,7 +120,7 @@ local theme = lush(function()
 
     Comment        { fg = colors.bg.li(32), gui = "italic" }, -- Any comment
 
-    Constant       { fg = colors.green }, -- (*) Any constant
+    Constant       { fg = colors.bright_green }, -- (*) Any constant
     -- String         {  }, --   A string constant: "this is a string"
     -- Character      { }, --   A character constant: 'c', '\n'
     -- Number         { }, --   A number constant: 234, 0xff
@@ -144,7 +144,7 @@ local theme = lush(function()
     -- Macro          { }, --   Same as Define
     -- PreCondit      { }, --   Preprocessor #if, #else, #endif, etc.
 
-    Type           { fg = colors.fg }, -- (*) int, long, char, etc.
+    Type           { fg = colors.yellow }, -- (*) int, long, char, etc.
     -- StorageClass   { }, --   static, register, volatile, etc.
     -- Structure      { }, --   struct, union, enum, etc.
     -- Typedef        { }, --   A typedef
@@ -268,7 +268,54 @@ local theme = lush(function()
     -- TSType               { } , -- Type (and class) definitions and annotations.
     -- TSTypeBuiltin        { } , -- Built-in types: `i32` in Rust.
     TSVariable           { Identifier } , -- Variable names that don't fit into other categories.
-    TSVariableBuiltin    { Identifier, gui = "italic" } , -- Variable names defined by the language: `this` or `self` in Javascript.
+    TSVariableBuiltin    { Identifier, gui = "italic" } , -- Variable names defined by the language: `this` or `self` in Javascript.			diffAdded                 { fg = p.leaf },
+
+    markdownTSPunctSpecial  { Special },
+    markdownTSStringEscape  { SpecialKey },
+    markdownTSTextReference { Identifier, gui = "underline" },
+    markdownTSEmphasis      { Italic },
+    markdownTSTitle         { Statement },
+    markdownTSLiteral       { Type },
+    markdownTSURI           { SpecialComment },
+
+    diffAdded            { fg = colors.bright_green },
+    diffRemoved          { fg = colors.red },
+    diffChanged          { fg = colors.blue },
+    diffOldFile          { fg = colors.red, gui = "italic" },
+    diffNewFile          { fg = colors.bright_green, gui = "italic" },
+    diffFile             { fg = colors.yellow, gui = "bold" },
+    diffLine             { fg = colors.magenta, gui = "bold" },
+    diffIndexLine        { fg = colors.yellow },
+
+    gitcommitOverflow         { WarningMsg },
+
+    markdownUrl               { markdownTSURI },
+    markdownCode              { markdownTSLiteral },
+    markdownLinkText          { markdownTSTextReference },
+    markdownLinkTextDelimiter { Delimiter },
+
+    helpHyperTextEntry        { gui = "bold" },
+    helpHyperTextJump         { Constant },
+    helpSpecial               { Type },
+    helpOption                { Constant, gui = "italic" },
+
+    GitSignsAdd                      { SignColumn, fg = colors.bright_green },
+    GitSignsChange                   { SignColumn, fg = colors.blue },
+    GitSignsDelete                   { SignColumn, fg = colors.red },
+
+    TelescopeSelection               { CursorLine, gui = "bold" },
+    TelescopeSelectionCaret          { CursorLine, fg = colors.red },
+    TelescopeMatching                { fg = colors.yellow, gui = "bold" },
+    TelescopeBorder                  { VertSplit },
+
+    CmpItemAbbr                      { fg = colors.bg.li(36) },
+    CmpItemAbbrDeprecated            { fg = colors.bg.li(36), gui = "strikethrough" },
+    CmpItemAbbrMatch                 { fg = colors.fg, gui = "bold" },
+    CmpItemAbbrMatchFuzzy            { fg = colors.fg.da(12), gui = "bold" },
+    CmpItemKind                      { fg = colors.bg.li(32) },
+    CmpItemMenu                      { fg = colors.bg.li(28) },
+
+    User1               { Bold, bg = StatusLine.bg }
   }
 end)
 
