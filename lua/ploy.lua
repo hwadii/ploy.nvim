@@ -101,7 +101,7 @@ local theme = lush(function()
     StatusLine   { Normal, bg = colors.bg.li(6) }, -- Status line of current window
     StatusLineNC { Normal, bg = colors.bg.li(10), gui = "italic" }, -- Status lines of not-current windows. Note: If this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
     TabLine      { StatusLine }, -- Tab pages line, not active tab page label
-    TabLineFill  { StatusLineNC }, -- Tab pages line, where there are no labels
+    TabLineFill  { Normal }, -- Tab pages line, where there are no labels
     TabLineSel   { gui = "bold" }, -- Tab pages line, active tab page label
     Title        { gui = "bold" }, -- Titles for output from ":set all", ":autocmd" etc.
     Visual       { bg = colors.cyan.da(78) }, -- Visual mode selection
