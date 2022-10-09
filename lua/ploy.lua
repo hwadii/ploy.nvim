@@ -295,8 +295,8 @@ local theme = lush(function()
     GitSignsChange                   { SignColumn, fg = colors.blue },
     GitSignsDelete                   { SignColumn, fg = colors.red },
 
-    TelescopeSelection               { CursorLine, gui = "bold" },
-    TelescopeSelectionCaret          { CursorLine, fg = colors.red },
+    TelescopeSelection               { gui = "bold" },
+    TelescopeSelectionCaret          { fg = colors.red },
     TelescopeMatching                { fg = colors.yellow, gui = "bold" },
     TelescopeBorder                  { VertSplit },
 
