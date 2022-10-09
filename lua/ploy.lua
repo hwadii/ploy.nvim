@@ -277,7 +277,9 @@ local theme = lush(function()
     diffLine             { fg = colors.magenta, gui = "bold" },
     diffIndexLine        { fg = colors.yellow },
 
-    gitcommitOverflow         { WarningMsg },
+    gitcommitOverflow          { WarningMsg },
+    gitcommitHeader            { Title },
+    gitcommitSummary           { Title },
 
     markdownUrl               { markdownTSURI },
     markdownCode              { markdownTSLiteral },
@@ -305,7 +307,6 @@ local theme = lush(function()
     CmpItemKind                      { fg = colors.bg.li(32) },
     CmpItemMenu                      { fg = colors.bg.li(28) },
 
-    -- fugitiveUnstagedSection 
     fugitiveHunk                    { fg = colors.fg.da(12) },
 
     User1               { Bold, bg = StatusLine.bg }
