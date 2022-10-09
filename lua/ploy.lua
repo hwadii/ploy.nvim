@@ -307,7 +307,9 @@ local theme = lush(function()
     CmpItemKind                      { fg = colors.bg.li(32) },
     CmpItemMenu                      { fg = colors.bg.li(28) },
 
-    fugitiveHunk                    { fg = colors.fg.da(12) },
+    fugitiveHeader              { Statement },
+    fugitiveHelpHeader          { Statement },
+    fugitiveHunk                { fg = colors.fg.da(12) },
 
     User1               { Bold, bg = StatusLine.bg }
   }
