@@ -82,6 +82,7 @@ local theme = lush(function()
     PmenuSel     { NormalFloat, bg = NormalFloat.bg.li(9)}, -- Popup menu: Selected item.
     PmenuSbar    { NormalFloat, bg = NormalFloat.bg.li(11) }, -- Popup menu: Scrollbar.
     PmenuThumb   { NormalFloat, bg = NormalFloat.bg.li(30) }, -- Popup menu: Thumb of the scrollbar.
+    FloatBorder  { NormalFloat },
     Question     { MoreMsg }, -- |hit-enter| prompt and yes/no questions
     -- QuickFixLine { }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
     SpellBad     { fg = colors.red, gui = "undercurl" }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
