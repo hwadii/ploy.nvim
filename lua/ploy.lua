@@ -23,16 +23,6 @@ local colors = {
   bright_magenta = hsl("#f7b4e1"),
   bright_cyan = hsl("#94c9b2"),
   bright_white = hsl("#eaeaea"),
-  -- Grays
-  gray01 = hsl("#222221"),
-  gray02 = hsl("#2a2a29"),
-  gray03 = hsl("#323231"),
-  gray04 = hsl("#3a3a39"),
-  gray05 = hsl("#6a6a69"),
-  gray06 = hsl("#767675"),
-  gray07 = hsl("#b6b6b5"),
-  -- Special
-  none = "NONE",
 }
 
 -- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
@@ -104,7 +94,7 @@ local theme = lush(function()
     TabLineFill  { Normal }, -- Tab pages line, where there are no labels
     TabLineSel   { gui = "bold" }, -- Tab pages line, active tab page label
     Title        { gui = "bold" }, -- Titles for output from ":set all", ":autocmd" etc.
-    Visual       { bg = colors.cyan.da(78) }, -- Visual mode selection
+    Visual       { bg = colors.cyan.da(70) }, -- Visual mode selection
     -- VisualNOS    { }, -- Visual mode selection when vim is "Not Owning the Selection".
     WarningMsg   { fg = colors.yellow }, -- Warning messages
     Winseparator { VertSplit }, -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
@@ -127,8 +117,8 @@ local theme = lush(function()
     -- Boolean        { }, --   A boolean constant: TRUE, false
     -- Float          { }, --   A floating point constant: 2.3e10
 
-    Identifier     { fg = colors.fg }, -- (*) Any variable name
-    Function       { }, --   Function name (also: methods for classes)
+    Identifier     { fg = colors.fg.da(10) }, -- (*) Any variable name
+    Function       { fg = colors.fg }, --   Function name (also: methods for classes)
 
     Statement      { fg = colors.blue, gui = "bold" }, -- (*) Any statement
     -- Conditional    { }, --   if, then, else, endif, switch, etc.
