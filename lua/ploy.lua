@@ -268,11 +268,11 @@ local theme = lush(function()
     markdownTSLiteral       { Type },
     markdownTSURI           { SpecialComment },
 
-    diffAdded            { fg = colors.bright_green },
+    diffAdded            { fg = colors.bright_green.sa(6).da(8) },
     diffRemoved          { fg = colors.red },
     diffChanged          { fg = colors.blue },
-    diffOldFile          { fg = colors.red, gui = "italic" },
-    diffNewFile          { fg = colors.bright_green, gui = "italic" },
+    diffOldFile          { diffRemoved, gui = "italic" },
+    diffNewFile          { diffAdded, gui = "italic" },
     diffFile             { fg = colors.yellow, gui = "bold" },
     diffLine             { fg = colors.magenta, gui = "bold" },
     diffIndexLine        { fg = colors.yellow },
@@ -304,6 +304,9 @@ local theme = lush(function()
     CmpItemAbbrMatchFuzzy            { fg = colors.fg.da(12), gui = "bold" },
     CmpItemKind                      { fg = colors.bg.li(32) },
     CmpItemMenu                      { fg = colors.bg.li(28) },
+
+    -- fugitiveUnstagedSection 
+    fugitiveHunk                    { fg = colors.fg.da(12) },
 
     User1               { Bold, bg = StatusLine.bg }
   }
