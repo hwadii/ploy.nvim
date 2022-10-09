@@ -121,12 +121,12 @@ local theme = lush(function()
     Function       { fg = colors.fg }, --   Function name (also: methods for classes)
 
     Statement      { fg = colors.blue, gui = "bold" }, -- (*) Any statement
-    -- Conditional    { }, --   if, then, else, endif, switch, etc.
-    -- Repeat         { }, --   for, do, while, etc.
-    -- Label          { }, --   case, default, etc.
+    Conditional    { Statement, gui = "NONE" }, --   if, then, else, endif, switch, etc.
+    Repeat         { Conditional }, --   for, do, while, etc.
+    Label          { Conditional }, --   case, default, etc.
     Operator       { fg = colors.bright_yellow }, --   "sizeof", "+", "*", etc.
-    -- Keyword        { }, --   any other keyword
-    -- Exception      { }, --   try, catch, throw
+    Keyword        { Conditional }, --   any other keyword
+    Exception      { Statement }, --   try, catch, throw
 
     PreProc        { Statement }, -- (*) Generic Preprocessor
     -- Include        { }, --   Preprocessor #include
