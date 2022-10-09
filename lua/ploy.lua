@@ -209,7 +209,7 @@ local theme = lush(function()
     -- TSException          { } , -- Exception related keywords: `try`, `except`, `finally` in Python.
     -- TSField              { } , -- Object and struct fields.
     -- TSFloat              { } , -- Floating-point number literals.
-    TSFunction           { gui = "NONE" } , -- Function calls and definitions.
+    -- TSFunction           { } , -- Function calls and definitions.
     TSFuncBuiltin        { } , -- Built-in functions: `print` in Lua.
     -- TSFuncMacro          { } , -- Macro defined functions (calls and definitions): each `macro_rules` in Rust.
     -- TSInclude            { } , -- File or module inclusion keywords: `#include` in C, `use` or `extern crate` in Rust.
@@ -236,7 +236,7 @@ local theme = lush(function()
     -- TSStringRegex        { } , -- Regular expression literals.
     -- TSStringEscape       { } , -- Escape characters within a string: `\n`, `\t`, etc.
     -- TSStringSpecial      { } , -- Strings with special meaning that don't fit into the previous categories.
-    -- TSSymbol             { } , -- Identifiers referring to symbols or atoms.
+    TSSymbol             { fg = colors.bright_green } , -- Identifiers referring to symbols or atoms.
     TSTag                { Special } , -- Tags like HTML tag names.
     -- TSTagAttribute       { } , -- HTML tag attributes.
     -- TSTagDelimiter       { } , -- Tag delimiters like `<` `>` `/`.
@@ -258,7 +258,7 @@ local theme = lush(function()
     -- TSType               { } , -- Type (and class) definitions and annotations.
     -- TSTypeBuiltin        { } , -- Built-in types: `i32` in Rust.
     TSVariable           { Identifier } , -- Variable names that don't fit into other categories.
-    TSVariableBuiltin    { Identifier, gui = "italic" } , -- Variable names defined by the language: `this` or `self` in Javascript.			diffAdded                 { fg = p.leaf },
+    TSVariableBuiltin    { Identifier, gui = "italic" } , -- Variable names defined by the language: `this` or `self` in Javascript.
 
     markdownTSPunctSpecial  { Special },
     markdownTSStringEscape  { SpecialKey },
