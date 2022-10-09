@@ -69,11 +69,11 @@ local theme = lush(function()
     Folded       { fg = colors.bg.li(64), bg = colors.bg.li(14) }, -- Line used for closed folds
     FoldColumn   { LineNr, gui = "bold" }, -- 'foldcolumn'
     SignColumn   { LineNr }, -- Column where |signs| are displayed
-    Search       { fg = colors.fg, bg = colors.yellow.da(74) }, -- Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
-    IncSearch    { fg = colors.bg, bg = colors.bright_yellow, gui = "bold" }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
+    Search       { fg = colors.fg.da(16), bg = colors.yellow.da(80) }, -- Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
+    IncSearch    { fg = colors.bright_white, bg = colors.yellow.da(60) }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     CurSearch    { IncSearch },
     -- Substitute   { }, -- |:substitute| replacement text highlighting
-    MatchParen   { fg = IncSearch.bg, gui = "bold" }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+    MatchParen   { fg = colors.magenta, gui = "bold" }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     -- ModeMsg      { }, -- 'showmode' message (e.g., "-- INSERT -- ")
     -- MsgArea      { }, -- Area for messages and cmdline
     MsgSeparator { VertSplit }, -- Separator for scrolled messages, `msgsep` flag of 'display'
