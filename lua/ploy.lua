@@ -312,6 +312,8 @@ local theme = lush(function()
     fugitiveHelpHeader          { Statement },
     fugitiveHunk                { fg = colors.fg.da(12) },
 
+    typescriptParens            { fg = colors.fg },
+
     User1               { Bold, bg = StatusLine.bg }
   }
 end)
