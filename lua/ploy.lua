@@ -196,72 +196,72 @@ local theme = lush(function(injected_functions)
     --
     -- See :h nvim-treesitter-highlights, some groups may not be listed, submit a PR fix to lush-template!
     --
-    -- TSAttribute          { } , -- Annotations that can be attached to the code to denote some kind of meta information. e.g. C++/Dart attributes.
-    -- TSBoolean            { } , -- Boolean literals: `True` and `False` in Python.
-    -- TSCharacter          { } , -- Character literals: `'a'` in C.
-    -- TSCharacterSpecial   { } , -- Special characters.
-    -- TSComment            { } , -- Line comments and block comments.
-    -- TSConditional        { } , -- Keywords related to conditionals: `if`, `when`, `cond`, etc.
-    sym("@constant")           { Constant } , -- Constants identifiers. These might not be semantically constant. E.g. uppercase variables in Python.
-    sym("@constant.builtin")       { Constant } , -- Built-in constant values: `nil` in Lua.
-    sym("@constant.macro")         { Constant } , -- Constants defined by macros: `NULL` in C.
-    -- TSConstructor        { } , -- Constructor calls and definitions: `{}` in Lua, and Java constructors.
-    -- TSDebug              { } , -- Debugging statements.
-    -- TSDefine             { } , -- Preprocessor #define statements.
-    -- TSError              { } , -- Syntax/parser errors. This might highlight large sections of code while the user is typing still incomplete code, use a sensible highlight.
-    -- TSException          { } , -- Exception related keywords: `try`, `except`, `finally` in Python.
-    -- TSField              { } , -- Object and struct fields.
-    -- TSFloat              { } , -- Floating-point number literals.
-    -- TSFunction           { } , -- Function calls and definitions.
-    sym("@function.builtin")        { } , -- Built-in functions: `print` in Lua.
-    -- TSFuncMacro          { } , -- Macro defined functions (calls and definitions): each `macro_rules` in Rust.
-    -- TSInclude            { } , -- File or module inclusion keywords: `#include` in C, `use` or `extern crate` in Rust.
-    -- TSKeyword            { } , -- Keywords that don't fit into other categories.
-    -- TSKeywordFunction    { } , -- Keywords used to define a function: `function` in Lua, `def` and `lambda` in Python.
-    -- TSKeywordOperator    { } , -- Unary and binary operators that are English words: `and`, `or` in Python; `sizeof` in C.
-    -- TSKeywordReturn      { } , -- Keywords like `return` and `yield`.
-    -- TSLabel              { } , -- GOTO labels: `label:` in C, and `::label::` in Lua.
-    -- TSMethod             { } , -- Method calls and definitions.
-    -- TSNamespace          { } , -- Identifiers referring to modules and namespaces.
-    -- TSNone               { } , -- No highlighting (sets all highlight arguments to `NONE`). this group is used to clear certain ranges, for example, string interpolations. Don't change the values of this highlight group.
-    -- TSNumber             { } , -- Numeric literals that don't fit into other categories.
-    -- TSOperator           { } , -- Binary or unary operators: `+`, and also `->` and `*` in C.
-    -- TSParameter          { } , -- Parameters of a function.
-    -- TSParameterReference { } , -- References to parameters of a function.
-    -- TSPreProc            { } , -- Preprocessor #if, #else, #endif, etc.
-    -- TSProperty           { } , -- Same as `TSField`.
-    -- TSPunctDelimiter     { } , -- Punctuation delimiters: Periods, commas, semicolons, etc.
-    -- TSPunctBracket       { } , -- Brackets, braces, parentheses, etc.
-    -- TSPunctSpecial       { } , -- Special punctuation that doesn't fit into the previous categories.
-    -- TSRepeat             { } , -- Keywords related to loops: `for`, `while`, etc.
-    -- TSStorageClass       { } , -- Keywords that affect how a variable is stored: `static`, `comptime`, `extern`, etc.
-    -- TSString             { } , -- String literals.
-    -- TSStringRegex        { } , -- Regular expression literals.
-    -- TSStringEscape       { } , -- Escape characters within a string: `\n`, `\t`, etc.
-    -- TSStringSpecial      { } , -- Strings with special meaning that don't fit into the previous categories.
-    sym("@symbol")             { fg = colors.bright_green } , -- Identifiers referring to symbols or atoms.
-    sym("@tag")                { Special } , -- Tags like HTML tag names.
-    -- TSTagAttribute       { } , -- HTML tag attributes.
-    -- TSTagDelimiter       { } , -- Tag delimiters like `<` `>` `/`.
-    -- TSText               { } , -- Non-structured text. Like text in a markup language.
-    sym("@text.strong")             { Bold } , -- Text to be represented in bold.
-    sym("@text.emphasis")           { Italic } , -- Text to be represented with emphasis.
-    sym("@text.underline")          { Underlined } , -- Text to be represented with an underline.
-    sym("@text.strike")             { gui = "Strikethrough" } , -- Strikethrough text.
-    sym("@text.title")              { Title } , -- Text that is part of a title.
-    -- TSLiteral            { } , -- Literal or verbatim text.
-    -- TSURI                { } , -- URIs like hyperlinks or email addresses.
-    -- TSMath               { } , -- Math environments like LaTeX's `$ ... $`
-    -- TSTextReference      { } , -- Footnotes, text references, citations, etc.
-    -- TSEnvironment        { } , -- Text environments of markup languages.
-    -- TSEnvironmentName    { } , -- Text/string indicating the type of text environment. Like the name of a `\begin` block in LaTeX.
-    sym("@text.note")               { DiagnosticInfo } , -- Text representation of an informational note.
-    sym("@text.warning")            { DiagnosticWarn } , -- Text representation of a warning note.
-    sym("@text.danger")             { DiagnosticError } , -- Text representation of a danger note.
-    -- TSType               { } , -- Type (and class) definitions and annotations.
-    -- TSTypeBuiltin        { } , -- Built-in types: `i32` in Rust.
-    sym("@variable")           { Identifier } , -- Variable names that don't fit into other categories.
-    sym("@variable.builtin")    { Identifier, gui = "italic" } , -- Variable names defined by the language: `this` or `self` in Javascript.
+    -- sym("@attribute")                { } , -- Annotations that can be attached to the code to denote some kind of meta information. e.g. C++/Dart attributes.
+    -- sym("@boolean")                  { } , -- Boolean literals: `True` and `False` in Python.
+    -- sym("@character")                { } , -- Character literals: `'a'` in C.
+    -- sym("@character.special")        { } , -- Special characters.
+    -- sym("@comment")                  { } , -- Line comments and block comments.
+    -- sym("@conditional")              { } , -- Keywords related to conditionals: `if`, `when`, `cond`, etc.
+    sym("@constant")                    { Constant } , -- Constants identifiers. These might not be semantically constant. E.g. uppercase variables in Python.
+    sym("@constant.builtin")            { Constant } , -- Built-in constant values: `nil` in Lua.
+    sym("@constant.macro")              { Constant } , -- Constants defined by macros: `NULL` in C.
+    -- sym("@constructor")              { } , -- Constructor calls and definitions: `                                                                                                                                                          { }` in Lua, and Java constructors.
+    -- sym("@debug")                    { } , -- Debugging statements.
+    -- sym("@define")                   { } , -- Preprocessor #define statements.
+    -- sym("@error")                    { } , -- Syntax/parser errors. This might highlight large sections of code while the user is typing still incomplete code, use a sensible highlight.
+    -- sym("@exception")                { } , -- Exception related keywords: `try`, `except`, `finally` in Python.
+    -- sym("@field")                    { } , -- Object and struct fields.
+    -- sym("@float")                    { } , -- Floating-point number literals.
+    -- sym("@function")                 { } , -- Function calls and definitions.
+    sym("@function.builtin")            { } , -- Built-in functions: `print` in Lua.
+    -- sym("@function.macro")           { } , -- Macro defined functions (calls and definitions): each `macro_rules` in Rust.
+    -- sym("@include")                  { } , -- File or module inclusion keywords: `#include` in C, `use` or `extern crate` in Rust.
+    -- sym("@keyword")                  { } , -- Keywords that don't fit into other categories.
+    -- sym("@keyword.function")         { } , -- Keywords used to define a function: `function` in Lua, `def` and `lambda` in Python.
+    -- sym("@keyword.operator")         { } , -- Unary and binary operators that are English words: `and`, `or` in Python; `sizeof` in C.
+    -- sym("@keyword.return")           { } , -- Keywords like `return` and `yield`.
+    -- sym("@label")                    { } , -- GOTO labels: `label:` in C, and `::label::` in Lua.
+    -- sym("@method")                   { } , -- Method calls and definitions.
+    -- sym("@namespace")                { } , -- Identifiers referring to modules and namespaces.
+    -- sym("@none")                     { } , -- No highlighting (sets all highlight arguments to `NONE`). this group is used to clear certain ranges, for example, string interpolations. Don't change the values of this highlight group.
+    -- sym("@number")                   { } , -- Numeric literals that don't fit into other categories.
+    -- sym("@operator")                 { } , -- Binary or unary operators: `+`, and also `->` and `*` in C.
+    -- sym("@parameter")                { } , -- Parameters of a function.
+    -- sym("@reference")                { } , -- References to parameters of a function.
+    -- sym("@preproc")                  { } , -- Preprocessor #if, #else, #endif, etc.
+    -- sym("@property")                 { } , -- Same as `TSField`.
+    -- sym("@punctuation.delimiter")    { } , -- Punctuation delimiters: Periods, commas, semicolons, etc.
+    -- sym("@punctuation.bracket")      { } , -- Brackets, braces, parentheses, etc.
+    -- sym("@punctuation.special")      { } , -- Special punctuation that doesn't fit into the previous categories.
+    -- sym("@repeat")                   { } , -- Keywords related to loops: `for`, `while`, etc.
+    -- sym("@storageclass")             { } , -- Keywords that affect how a variable is stored: `static`, `comptime`, `extern`, etc.
+    -- sym("@string")                   { } , -- String literals.
+    -- sym("@string.regex")             { } , -- Regular expression literals.
+    -- sym("@string.escape")            { } , -- Escape characters within a string: `\n`, `\t`, etc.
+    -- sym("@string.special")           { } , -- Strings with special meaning that don't fit into the previous categories.
+    sym("@symbol")                      { fg = colors.bright_green } , -- Identifiers referring to symbols or atoms.
+    sym("@tag")                         { Special } , -- Tags like HTML tag names.
+    -- sym("@tag.attribute")            { } , -- HTML tag attributes.
+    -- sym("@tag.delimiter")            { } , -- Tag delimiters like `<` `>` `/`.
+    -- sym("@text")                     { } , -- Non-structured text. Like text in a markup language.
+    sym("@text.strong")                 { Bold } , -- Text to be represented in bold.
+    sym("@text.emphasis")               { Italic } , -- Text to be represented with emphasis.
+    sym("@text.underline")              { Underlined } , -- Text to be represented with an underline.
+    sym("@text.strike")                 { gui = "Strikethrough" } , -- Strikethrough text.
+    sym("@text.title")                  { Title } , -- Text that is part of a title.
+    -- sym("@literal")                  { } , -- Literal or verbatim text.
+    -- sym("@uri")                      { } , -- URIs like hyperlinks or email addresses.
+    -- sym("@math")                     { } , -- Math environments like LaTeX's `$ ... $`
+    -- sym("@textreference")            { } , -- Footnotes, text references, citations, etc.
+    -- sym("@environment")              { } , -- Text environments of markup languages.
+    -- sym("@environmentname")          { } , -- Text/string indicating the type of text environment. Like the name of a `\begin` block in LaTeX.
+    sym("@text.note")                   { DiagnosticInfo } , -- Text representation of an informational note.
+    sym("@text.warning")                { DiagnosticWarn } , -- Text representation of a warning note.
+    sym("@text.danger")                 { DiagnosticError } , -- Text representation of a danger note.
+    -- sym("@type")                     { } , -- Type (and class) definitions and annotations.
+    -- sym("@type.builtin")             { } , -- Built-in types: `i32` in Rust.
+    sym("@variable")                    { Identifier } , -- Variable names that don't fit into other categories.
+    sym("@variable.builtin")            { Identifier, gui = "italic" } , -- Variable names defined by the language: `this` or `self` in Javascript.
 
     markdownTSPunctSpecial  { Special },
     markdownTSStringEscape  { SpecialKey },
