@@ -28,7 +28,9 @@ local colors = {
 -- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
 -- support an annotation like the following. Consult your server documentation.
 ---@diagnostic disable: undefined-global
-local theme = lush(function()
+local theme = lush(function(injected_functions)
+  local sym = injected_functions.sym
+
   return {
     -- The following are the Neovim (as of 0.8.0-dev+100-g371dfb174) highlight
     -- groups, mostly used for styling UI elements.
@@ -200,9 +202,9 @@ local theme = lush(function()
     -- TSCharacterSpecial   { } , -- Special characters.
     -- TSComment            { } , -- Line comments and block comments.
     -- TSConditional        { } , -- Keywords related to conditionals: `if`, `when`, `cond`, etc.
-    TSConstant           { Constant } , -- Constants identifiers. These might not be semantically constant. E.g. uppercase variables in Python.
-    TSConstBuiltin       { Constant } , -- Built-in constant values: `nil` in Lua.
-    TSConstMacro         { Constant } , -- Constants defined by macros: `NULL` in C.
+    sym("@constant")           { Constant } , -- Constants identifiers. These might not be semantically constant. E.g. uppercase variables in Python.
+    sym("@constant.builtin")       { Constant } , -- Built-in constant values: `nil` in Lua.
+    sym("@constant.macro")         { Constant } , -- Constants defined by macros: `NULL` in C.
     -- TSConstructor        { } , -- Constructor calls and definitions: `{}` in Lua, and Java constructors.
     -- TSDebug              { } , -- Debugging statements.
     -- TSDefine             { } , -- Preprocessor #define statements.
@@ -211,7 +213,7 @@ local theme = lush(function()
     -- TSField              { } , -- Object and struct fields.
     -- TSFloat              { } , -- Floating-point number literals.
     -- TSFunction           { } , -- Function calls and definitions.
-    TSFuncBuiltin        { } , -- Built-in functions: `print` in Lua.
+    sym("@function.builtin")        { } , -- Built-in functions: `print` in Lua.
     -- TSFuncMacro          { } , -- Macro defined functions (calls and definitions): each `macro_rules` in Rust.
     -- TSInclude            { } , -- File or module inclusion keywords: `#include` in C, `use` or `extern crate` in Rust.
     -- TSKeyword            { } , -- Keywords that don't fit into other categories.
@@ -237,29 +239,29 @@ local theme = lush(function()
     -- TSStringRegex        { } , -- Regular expression literals.
     -- TSStringEscape       { } , -- Escape characters within a string: `\n`, `\t`, etc.
     -- TSStringSpecial      { } , -- Strings with special meaning that don't fit into the previous categories.
-    TSSymbol             { fg = colors.bright_green } , -- Identifiers referring to symbols or atoms.
-    TSTag                { Special } , -- Tags like HTML tag names.
+    sym("@symbol")             { fg = colors.bright_green } , -- Identifiers referring to symbols or atoms.
+    sym("@tag")                { Special } , -- Tags like HTML tag names.
     -- TSTagAttribute       { } , -- HTML tag attributes.
     -- TSTagDelimiter       { } , -- Tag delimiters like `<` `>` `/`.
     -- TSText               { } , -- Non-structured text. Like text in a markup language.
-    TSStrong             { Bold } , -- Text to be represented in bold.
-    TSEmphasis           { Italic } , -- Text to be represented with emphasis.
-    TSUnderline          { Underlined } , -- Text to be represented with an underline.
-    TSStrike             { gui = "Strikethrough" } , -- Strikethrough text.
-    -- TSTitle              { } , -- Text that is part of a title.
+    sym("@text.strong")             { Bold } , -- Text to be represented in bold.
+    sym("@text.emphasis")           { Italic } , -- Text to be represented with emphasis.
+    sym("@text.underline")          { Underlined } , -- Text to be represented with an underline.
+    sym("@text.strike")             { gui = "Strikethrough" } , -- Strikethrough text.
+    sym("@text.title")              { Title } , -- Text that is part of a title.
     -- TSLiteral            { } , -- Literal or verbatim text.
     -- TSURI                { } , -- URIs like hyperlinks or email addresses.
     -- TSMath               { } , -- Math environments like LaTeX's `$ ... $`
     -- TSTextReference      { } , -- Footnotes, text references, citations, etc.
     -- TSEnvironment        { } , -- Text environments of markup languages.
     -- TSEnvironmentName    { } , -- Text/string indicating the type of text environment. Like the name of a `\begin` block in LaTeX.
-    TSNote               { DiagnosticInfo } , -- Text representation of an informational note.
-    TSWarning            { DiagnosticWarn } , -- Text representation of a warning note.
-    TSDanger             { DiagnosticError } , -- Text representation of a danger note.
+    sym("@text.note")               { DiagnosticInfo } , -- Text representation of an informational note.
+    sym("@text.warning")            { DiagnosticWarn } , -- Text representation of a warning note.
+    sym("@text.danger")             { DiagnosticError } , -- Text representation of a danger note.
     -- TSType               { } , -- Type (and class) definitions and annotations.
     -- TSTypeBuiltin        { } , -- Built-in types: `i32` in Rust.
-    TSVariable           { Identifier } , -- Variable names that don't fit into other categories.
-    TSVariableBuiltin    { Identifier, gui = "italic" } , -- Variable names defined by the language: `this` or `self` in Javascript.
+    sym("@variable")           { Identifier } , -- Variable names that don't fit into other categories.
+    sym("@variable.builtin")    { Identifier, gui = "italic" } , -- Variable names defined by the language: `this` or `self` in Javascript.
 
     markdownTSPunctSpecial  { Special },
     markdownTSStringEscape  { SpecialKey },
