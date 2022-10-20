@@ -280,6 +280,9 @@ local theme = lush(function(injected_functions)
     diffLine             { fg = colors.magenta, gui = "bold" },
     diffIndexLine        { fg = colors.yellow },
 
+    sym("@text.diff.add")     { diffAdded },
+    sym("@text.diff.delete")  { diffRemoved },
+
     gitcommitOverflow          { WarningMsg },
     gitcommitHeader            { Title },
     gitcommitSummary           { Title },
