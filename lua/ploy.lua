@@ -258,8 +258,9 @@ local theme = lush(function(injected_functions)
     sym("@text.note")                   { DiagnosticInfo } , -- Text representation of an informational note.
     sym("@text.warning")                { DiagnosticWarn } , -- Text representation of a warning note.
     sym("@text.danger")                 { DiagnosticError } , -- Text representation of a danger note.
-    -- sym("@type")                     { } , -- Type (and class) definitions and annotations.
-    -- sym("@type.builtin")             { } , -- Built-in types: `i32` in Rust.
+    sym("@type")                        { Type } , -- Type (and class) definitions and annotations.
+    sym("@type.builtin")                { Type } , -- Built-in types: `i32` in Rust.
+    sym("@type.qualifier")              { Keyword } ,
     sym("@variable")                    { Identifier } , -- Variable names that don't fit into other categories.
     sym("@variable.builtin")            { Identifier, gui = "italic" } , -- Variable names defined by the language: `this` or `self` in Javascript.
 
