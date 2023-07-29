@@ -213,7 +213,8 @@ local theme = lush(function(injected_functions)
     sym("@field")                    { Identifier } , -- Object and struct fields.
     sym("@float")                    { Number } , -- Floating-point number literals.
     sym("@function")                 { Function } , -- Function calls and definitions.
-    sym("@function.builtin")         { Special } , -- Built-in functions: `print` in Lua.
+    sym("@function.call")            { Function } ,
+    sym("@function.builtin")         { Function } , -- Built-in functions: `print` in Lua.
     sym("@function.macro")           { PreProc } , -- Macro defined functions (calls and definitions): each `macro_rules` in Rust.
     sym("@include")                  { PreProc } , -- File or module inclusion keywords: `#include` in C, `use` or `extern crate` in Rust.
     sym("@keyword")                  { Keyword } , -- Keywords that don't fit into other categories.
