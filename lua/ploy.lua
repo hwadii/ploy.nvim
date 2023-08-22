@@ -50,7 +50,7 @@ local theme = lush(function(injected_functions)
     CursorColumn { CursorLine }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     ColorColumn  { bg = colors.bg.saturation(2).lightness(20) }, -- Columns set with 'colorcolumn'
     Directory    { gui = "bold" }, -- Directory names (and other special names in listings)
-    DiffAdd      { bg = colors.green.da(30) }, -- Diff mode: Added line |diff.txt|
+    DiffAdd      { bg = colors.green.da(40).de(30) }, -- Diff mode: Added line |diff.txt|
     DiffChange   { bg = colors.blue.da(70) }, -- Diff mode: Changed line |diff.txt|
     DiffDelete   { bg = colors.red.de(60).da(40) }, -- Diff mode: Deleted line |diff.txt|
     DiffText     { bg = colors.blue.da(50) }, -- Diff mode: Changed text within a changed line |diff.txt|
