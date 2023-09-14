@@ -81,8 +81,8 @@ local theme = lush(function(injected_functions)
     MsgSeparator { VertSplit }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     MoreMsg      { fg = colors.green, gui = "bold" }, -- |more-prompt|
     Pmenu        { NormalFloat }, -- Popup menu: Normal item.
-    PmenuSel     { NormalFloat, bg = NormalFloat.bg.li(9)}, -- Popup menu: Selected item.
-    PmenuSbar    { NormalFloat, bg = NormalFloat.bg.li(11) }, -- Popup menu: Scrollbar.
+    PmenuSel     { NormalFloat, bg = NormalFloat.bg.li(12)}, -- Popup menu: Selected item.
+    PmenuSbar    { NormalFloat, bg = NormalFloat.bg.li(16) }, -- Popup menu: Scrollbar.
     PmenuThumb   { NormalFloat, bg = NormalFloat.bg.li(30) }, -- Popup menu: Thumb of the scrollbar.
     FloatBorder  { NormalFloat },
     Question     { MoreMsg }, -- |hit-enter| prompt and yes/no questions
