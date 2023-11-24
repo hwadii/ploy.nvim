@@ -181,11 +181,11 @@ local theme = lush(function(injected_functions)
     DiagnosticVirtualTextInfo  { DiagnosticInfo, gui = "italic"} , -- Used for "Info" diagnostic virtual text.
     DiagnosticVirtualTextHint  { DiagnosticHint, gui = "italic"} , -- Used for "Hint" diagnostic virtual text.
     DiagnosticVirtualTextOk    { DiagnosticOk, gui = "italic" } ,
-    DiagnosticUnderlineError   { DiagnosticError, gui = "undercurl" } , -- Used to underline "Error" diagnostics.
-    DiagnosticUnderlineWarn    { DiagnosticWarn, gui = "underline" } , -- Used to underline "Warn" diagnostics.
-    DiagnosticUnderlineInfo    { DiagnosticInfo, gui = "underline" } , -- Used to underline "Info" diagnostics.
-    DiagnosticUnderlineHint    { DiagnosticHint, gui = "underline" } , -- Used to underline "Hint" diagnostics.
-    DiagnosticUnderlineOk      { DiagnosticOk, gui = "underline" } ,
+    DiagnosticUnderlineError   { sp = colors.red, gui = "undercurl" } , -- Used to underline "Error" diagnostics.
+    DiagnosticUnderlineWarn    { sp = DiagnosticWarn.fg, gui = "underline" } , -- Used to underline "Warn" diagnostics.
+    DiagnosticUnderlineInfo    { sp = DiagnosticInfo.fg, gui = "underline" } , -- Used to underline "Info" diagnostics.
+    DiagnosticUnderlineHint    { sp = DiagnosticHint.fg, gui = "underline" } , -- Used to underline "Hint" diagnostics.
+    DiagnosticUnderlineOk      { sp = DiagnosticOk.fg, gui = "underline" } ,
     -- DiagnosticFloatingError    { } , -- Used to color "Error" diagnostic messages in diagnostics float. See |vim.diagnostic.open_float()|
     -- DiagnosticFloatingWarn     { } , -- Used to color "Warn" diagnostic messages in diagnostics float.
     -- DiagnosticFloatingInfo     { } , -- Used to color "Info" diagnostic messages in diagnostics float.
