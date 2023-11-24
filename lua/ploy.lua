@@ -229,7 +229,7 @@ local theme = lush(function(injected_functions)
     sym("@keyword.return")           { Keyword } , -- Keywords like `return` and `yield`.
     sym("@label")                    { Keyword } , -- GOTO labels: `label:` in C, and `::label::` in Lua.
     sym("@method")                   { Function } , -- Method calls and definitions.
-    sym("@namespace")                { Special } , -- Identifiers referring to modules and namespaces.
+    sym("@namespace")                { Type } , -- Identifiers referring to modules and namespaces.
     sym("@none")                     { } , -- No highlighting (sets all highlight arguments to `NONE`). this group is used to clear certain ranges, for example, string interpolations. Don't change the values of this highlight group.
     sym("@number")                   { Number } , -- Numeric literals that don't fit into other categories.
     sym("@operator")                 { Operator } , -- Binary or unary operators: `+`, and also `->` and `*` in C.
