@@ -93,7 +93,7 @@ local theme = lush(function(injected_functions)
     SpellRare    { fg = colors.red, gui = "undercurl" }, -- Word that is recognized by the spellchecker as one that is hardly ever used. |spell| Combined with the highlighting used otherwise.
     StatusLine   { Normal, bg = colors.bg.li(6) }, -- Status line of current window
     StatusLineNC { Normal, bg = colors.bg.li(10), gui = "italic" }, -- Status lines of not-current windows. Note: If this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
-    TabLine      { StatusLine }, -- Tab pages line, not active tab page label
+    TabLine      { Normal, bg = colors.bg.li(10) }, -- Tab pages line, not active tab page label
     TabLineFill  { Normal }, -- Tab pages line, where there are no labels
     TabLineSel   { gui = "bold" }, -- Tab pages line, active tab page label
     Title        { gui = "bold" }, -- Titles for output from ":set all", ":autocmd" etc.
