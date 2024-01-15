@@ -371,6 +371,18 @@ local theme = lush(function(injected_functions)
 
     typescriptParens            { fg = colors.fg },
 
+    prrAdded { diffAdded },
+    prrRemoved { diffRemoved },
+    prrFile { Special },
+
+    prrHeader { Directory },
+
+    prrIndex { Special },
+    prrChunk { Special },
+    prrChunkH { Special },
+    prrTagName { Special },
+    prrResult { Special },
+
     User1               { Bold, bg = StatusLine.bg }
   }
 end)
