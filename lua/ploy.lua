@@ -200,128 +200,165 @@ local theme = lush(function(injected_functions)
     --
     -- See :h nvim-treesitter-highlights, some groups may not be listed, submit a PR fix to lush-template!
     --
-    sym("@attribute")                { PreProc } , -- Annotations that can be attached to the code to denote some kind of meta information. e.g. C++/Dart attributes.
-    sym("@annotation")               { PreProc } ,
-    sym("@boolean")                  { Boolean } , -- Boolean literals: `True` and `False` in Python.
-    sym("@character")                { Constant } , -- Character literals: `'a'` in C.
-    sym("@character.special")        { Special } , -- Special characters.
-    sym("@comment")                  { Comment } , -- Line comments and block comments.
-    sym("@conditional")              { Conditional } , -- Keywords related to conditionals: `if`, `when`, `cond`, etc.
-    sym("@constant")                    { Constant } , -- Constants identifiers. These might not be semantically constant. E.g. uppercase variables in Python.
-    sym("@constant.builtin")            { Constant } , -- Built-in constant values: `nil` in Lua.
-    sym("@constant.macro")              { Constant } , -- Constants defined by macros: `NULL` in C.
-    sym("@constructor")              { Special } , -- Constructor calls and definitions: `                                                                                                                                                          { }` in Lua, and Java constructors.
-    sym("@debug")                    { Special } , -- Debugging statements.
-    sym("@define")                   { PreProc } , -- Preprocessor #define statements.
-    sym("@exception")                { Statement } , -- Exception related keywords: `try`, `except`, `finally` in Python.
-    sym("@field")                    { Identifier } , -- Object and struct fields.
-    sym("@float")                    { Number } , -- Floating-point number literals.
-    sym("@function")                 { Function } , -- Function calls and definitions.
-    sym("@function.call")            { Function } ,
-    sym("@function.builtin")         { Function } , -- Built-in functions: `print` in Lua.
-    sym("@function.macro")           { PreProc } , -- Macro defined functions (calls and definitions): each `macro_rules` in Rust.
-    sym("@include")                  { PreProc } , -- File or module inclusion keywords: `#include` in C, `use` or `extern crate` in Rust.
-    sym("@keyword")                  { Keyword } , -- Keywords that don't fit into other categories.
-    sym("@keyword.return")           { Keyword } ,
-    sym("@keyword.coroutine")        { Keyword } ,
-    sym("@keyword.function")         { Keyword } , -- Keywords used to define a function: `function` in Lua, `def` and `lambda` in Python.
-    sym("@keyword.operator")         { Keyword } , -- Unary and binary operators that are English words: `and`, `or` in Python; `sizeof` in C.
-    sym("@keyword.return")           { Keyword } , -- Keywords like `return` and `yield`.
-    sym("@label")                    { Keyword } , -- GOTO labels: `label:` in C, and `::label::` in Lua.
-    sym("@method")                   { Function } , -- Method calls and definitions.
-    sym("@namespace")                { Type } , -- Identifiers referring to modules and namespaces.
-    sym("@none")                     { } , -- No highlighting (sets all highlight arguments to `NONE`). this group is used to clear certain ranges, for example, string interpolations. Don't change the values of this highlight group.
-    sym("@number")                   { Number } , -- Numeric literals that don't fit into other categories.
-    sym("@operator")                 { Operator } , -- Binary or unary operators: `+`, and also `->` and `*` in C.
-    sym("@parameter")                { Identifier } , -- Parameters of a function.
-    sym("@parameter.reference")                { sym("@parameter") } , -- References to parameters of a function.
-    sym("@preproc")                  { PreProc } , -- Preprocessor #if, #else, #endif, etc.
-    sym("@property")                 { Identifier } , -- Same as `TSField`.
-    sym("@punctuation.delimiter")    { Delimiter } , -- Punctuation delimiters: Periods, commas, semicolons, etc.
-    sym("@punctuation.bracket")      { Delimiter } , -- Brackets, braces, parentheses, etc.
-    sym("@punctuation.special")      { Delimiter } , -- Special punctuation that doesn't fit into the previous categories.
-    sym("@repeat")                   { Repeat } , -- Keywords related to loops: `for`, `while`, etc.
-    sym("@storageclass")             { Type } , -- Keywords that affect how a variable is stored: `static`, `comptime`, `extern`, etc.
-    sym("@string")                   { Constant } , -- String literals.
-    sym("@string.regex")             { Constant } , -- Regular expression literals.
-    sym("@string.escape")            { Special } , -- Escape characters within a string: `\n`, `\t`, etc.
-    sym("@string.special")           { Special } , -- Strings with special meaning that don't fit into the previous categories.
-    sym("@symbol")                      { fg = colors.bright_green } , -- Identifiers referring to symbols or atoms.
-    sym("@tag")                         { Special } , -- Tags like HTML tag names.
-    sym("@tag.attribute")            { sym("@property") } , -- HTML tag attributes.
-    sym("@tag.delimiter")            { Delimiter } , -- Tag delimiters like `<` `>` `/`.
-    sym("@text")                      { sym "@none" },
-    sym("@text.emphasis")             { Italic },
-    sym("@text.environment")          { PreProc },
-    sym("@text.environment.name")     { Type },
-    sym("@text.literal")              { Constant },
-    sym("@text.math")                 { Special },
-    sym("@text.note")                 { DiagnosticInfo },
-    sym("@text.reference")            { Constant },
-    sym("@text.strike")               { gui = "strikethrough" },
-    sym("@text.strong")               { Bold },
-    sym("@text.title")                { Title },
-    sym("@text.underline")            { Underlined },
-    sym("@text.uri")                  { Underlined },
-    sym("@todo")                      { Todo },
-    sym("@type")                      { Type },
-    sym("@text.warning")                { DiagnosticWarn } , -- Text representation of a warning note.
-    sym("@text.danger")                 { DiagnosticError } , -- Text representation of a danger note.
-    sym("@type")                        { Type } , -- Type (and class) definitions and annotations.
-    sym("@type.builtin")                { Type } , -- Built-in types: `i32` in Rust.
-    sym("@type.qualifier")              { Keyword } ,
-    sym("@type.definition")              { Type },
-    sym("@variable")                    { Identifier } , -- Variable names that don't fit into other categories.
-    sym("@variable.builtin")            { Identifier, gui = "italic" } , -- Variable names defined by the language: `this` or `self` in Javascript.
+    sym("@variable")                     { Identifier },
+    sym("@variable.builtin")             { Identifier, gui = 'italic' },
+    sym("@variable.parameter")           { sym "@variable" },
+    sym("@variable.member")              { sym "@variable" },
+
+    sym("@constant")                     { Constant },
+    sym("@constant.builtin")             { sym "@constant" },
+    sym("@constant.macro")               { sym "@constant" },
+
+    sym("@module")                       { Type },
+    sym("@module.builtin")               { sym "@module" },
+    sym("@label")                        { Statement },
+
+    sym("@string")                       { Constant },
+    sym("@string.documentation")         { sym "@string" },
+    sym("@string.regexp")                { Constant },
+    sym("@string.escape")                { Special },
+    sym("@string.special")               { Special },
+    sym("@string.special.symbol")        { Identifier },
+    sym("@string.special.url")           { sym "@string.special" },
+    sym("@string.special.path")          { sym "@string.special" },
+
+    sym("@character")                    { Constant },
+    sym("@character.special")            { Special },
+
+    sym("@boolean")                      { Boolean },
+    sym("@number")                       { Number },
+    sym("@number.float")                 { sym "@number" },
+
+    sym("@type")                         { Type },
+    sym("@type.builtin")                 { sym "@type" },
+    sym("@type.definition")              { sym "@type" },
+    sym("@type.qualifier")               { sym "@type" },
+
+    sym("@attribute")                    { PreProc },
+    sym("@property")                     { Identifier },
+
+    sym("@function")                     { Function },
+    sym("@function.builtin")             { Special },
+    sym("@function.call")                { sym "@function" },
+    sym("@function.macro")               { PreProc },
+
+    sym("@function.method")              { sym "@function" },
+    sym("@function.method.call")         { sym "@function" },
+
+    sym("@constructor")                  { Special },
+    sym("@operator")                     { Operator },
+
+    sym("@keyword")                      { Keyword },
+    sym("@keyword.coroutine")            { sym "@keyword" },
+    sym("@keyword.function")             { sym "@keyword" },
+    sym("@keyword.operator")             { sym "@keyword" },
+    sym("@keyword.import")               { sym "@keyword" },
+    sym("@keyword.storage")              { sym "@keyword" },
+    sym("@keyword.repeat")               { sym "@keyword" },
+    sym("@keyword.return")               { sym "@keyword" },
+    sym("@keyword.debug")                { sym "@keyword" },
+    sym("@keyword.exception")            { sym "@keyword" },
+
+    sym("@keyword.conditional")          { sym "@keyword" },
+    sym("@keyword.conditional.ternary")  { sym "@keyword.conditional" },
+    sym("@keyword.directive")            { PreProc },
+    sym("@keyword.directive.define")     { sym "@keyword.directive" },
+
+    sym("@punctuation")                  { Delimiter },
+    sym("@punctuation.delimiter")        { Delimiter },
+    sym("@punctuation.bracket")          { Delimiter },
+    sym("@punctuation.special")          { Delimiter },
+
+    sym("@comment")                      { Comment },
+    sym("@comment.documentation")        { sym "@comment" },
+
+    sym("@comment.error")                { Error },
+    sym("@comment.warning")              { WarningMsg },
+    sym("@comment.todo")                 { Todo },
+    sym("@comment.note")                 { DiagnosticInfo },
+
+    sym("@markup.strong")                { Bold },
+    sym("@markup.itailc")                { Italic },
+    sym("@markup.strikethrough")         { gui = "strikethrough" },
+    sym("@markup.underline")             { Underlined },
+
+    sym("@markup.heading")               { Title },
+
+    sym("@markup.quote")                 { Comment },
+    sym("@markup.math")                  { Special },
+    sym("@markup.environment")           { PreProc },
+
+    sym("@markup.link")                  { Constant },
+    sym("@markup.link.label")            { Special },
+    sym("@markup.link.url")              { Constant, gui = "underline" },
+
+    sym("@markup.raw")                   { Constant },
+    sym("@markup.raw.block")             { sym "@markup.raw" },
+
+    sym("@markup.list")                  { Special },
+    sym("@markup.list.checked")          { sym "@markup.list" },
+    sym("@markup.list.unchecked")        { sym "@markup.list" },
+
+    sym("@diff.plus")                    { fg = colors.bright_green.sa(6).da(8) },
+    sym("@diff.minus")                   { fg = colors.red },
+    sym("@diff.delta")                   { fg = colors.blue },
+
+    sym("@tag")                          { Special },
+    sym("@tag.attribute")                { sym "@property" },
+    sym("@tag.delimiter")                { Delimiter },
+
+    sym("@none")                         { },
 
     sym("@punctuation.special.markdown") { Special },
     sym("@string.escape.markdown")       { SpecialKey },
-    sym("@text.reference.markdown")      { Identifier, gui = "underline" },
-    sym("@text.emphasis.markdown")       { Italic },
-    sym("@text.title.markdown")          { Statement },
-    sym("@text.literal.markdown")        { Type },
-    sym("@text.uri.markdown")            { SpecialComment },
+    sym("@markup.link.markdown")         { Identifier, gui = "underline" },
+    sym("@markup.italic.markdown")       { Italic },
+    sym("@markup.title.markdown")        { Statement },
+    sym("@markup.raw.markdown")          { Type },
+    sym("@markup.link.url.markdown")     { SpecialComment },
 
-    sym("@lsp.type.boolean")                    { sym "@boolean" },
-    sym("@lsp.type.builtinType")                { sym "@type.builtin" },
-    sym("@lsp.type.comment")                    { sym "@comment" },
-    sym("@lsp.type.comment")                    { sym "@comment" },
-    sym("@lsp.type.enum")                       { sym "@type" },
-    sym("@lsp.type.enum")                       { sym "@type" },
-    sym("@lsp.type.enumMember")                 { sym "@constant" },
-    sym("@lsp.type.escapeSequence")             { sym "@string.escape" },
-    sym("@lsp.type.formatSpecifier")            { sym "@punctuation.special" },
-    sym("@lsp.type.keyword")                    { sym "@keyword" },
-    sym("@lsp.type.keyword")                    { sym "@keyword" },
-    sym("@lsp.type.namespace")                  { sym "@namespace" },
-    sym("@lsp.type.namespace")                  { sym "@namespace" },
-    sym("@lsp.type.number")                     { sym "@number" },
-    sym("@lsp.type.parameter")                  { sym "@parameter" },
-    sym("@lsp.type.parameter")                  { sym "@parameter" },
-    sym("@lsp.type.property")                   { sym "@property" },
-    sym("@lsp.type.property")                   { sym "@property" },
-    sym("@lsp.typemod.method.defaultLibrary")   { sym  "@function.builtin" },
-    sym("@lsp.type.selfKeyword")                { sym "@variable.builtin" },
-    sym("@lsp.typemod.function.defaultLibrary") { sym  "@function.builtin" },
-    sym("@lsp.type.string.rust")                { sym "@string" },
-    sym("@lsp.type.typeAlias")                  { sym "@type.definition" },
-    sym("@lsp.type.unresolvedReference")        { gui = "undercurl", sp = Error.fg },
-    sym("@lsp.type.variable")                   { sym "@variable" },
-    sym("@lsp.typemod.class.defaultLibrary")    { sym "@type.builtin" },
-    sym("@lsp.typemod.enum.defaultLibrary")     { sym "@type.builtin" },
-    sym("@lsp.typemod.enumMember.defaultLibrary") { sym "@constant.builtin" },
-    sym("@lsp.typemod.method.defaultLibrary")   { sym "@function.builtin" },
-    sym("@lsp.typemod.function.defaultLibrary") { sym "@function.builtin" },
-    sym("@lsp.typemod.macro.defaultLibrary")    { sym "@function.builtin" },
-    sym("@lsp.typemod.keyword.async")           { sym "@keyword.coroutine" },
-    sym("@lsp.typemod.operator.injected")       { sym "@operator" },
-    sym("@lsp.typemod.operator.injected")       { sym "@operator" },
-    sym("@lsp.typemod.string.injected")         { sym "@string" },
-    sym("@lsp.typemod.string.injected")         { sym "@string" },
-    sym("@lsp.typemod.variable.defaultLibrary") { sym "@variable.builtin" },
-    sym("@lsp.typemod.variable.defaultLibrary") { sym "@variable.builtin" },
-    sym("@lsp.typemod.variable.injected")       { sym "@variable" },
-    sym("@lsp.typemod.variable.injected")       { sym "@variable" },
+    -- (SP Semantic Token Groups
+    sym("@lsp.type.boolean")                       { sym "@boolean" },
+    sym("@lsp.type.builtinType")                   { sym "@type.builtin" },
+    sym("@lsp.type.comment")                       { sym "@comment" },
+    sym("@lsp.type.decorator")                     { sym "@attribute" },
+    sym("@lsp.type.deriveHelper")                  { sym "@attribute" },
+    sym("@lsp.type.enum")                          { sym "@type" },
+    sym("@lsp.type.enumMember")                    { sym "@constant" },
+    sym("@lsp.type.escapeSequence")                { sym "@string.escape" },
+    sym("@lsp.type.formatSpecifier")               { sym "@markup.list" },
+    sym("@lsp.type.generic")                       { sym "@variable" },
+    sym("@lsp.type.interface")                     { sym "@type" },
+    sym("@lsp.type.keyword")                       { Statement },
+    sym("@lsp.type.lifetime")                      { sym "@keyword.storage" },
+    sym("@lsp.type.namespace")                     { sym "@module" },
+    sym("@lsp.type.number")                        { sym "@number" },
+    sym("@lsp.type.operator")                      { sym "@operator" },
+    sym("@lsp.type.parameter")                     { sym "@variable.parameter" },
+    sym("@lsp.type.property")                      { sym "@property" },
+    sym("@lsp.type.selfKeyword")                   { sym "@variable.builtin" },
+    sym("@lsp.type.selfTypeKeyword")               { sym "@variable.builtin" },
+    sym("@lsp.type.string")                        { sym "@string" },
+    sym("@lsp.type.typeAlias")                     { sym "@type.definition" },
+    sym("@lsp.type.unresolvedReference")           { gui = "undercurl", sp = Error.fg },
+    sym("@lsp.type.variable")                      { },
+    sym("@lsp.typemod.class.defaultLibrary")       { sym "@type.builtin" },
+    sym("@lsp.typemod.enum.defaultLibrary")        { sym "@type.builtin" },
+    sym("@lsp.typemod.enumMember.defaultLibrary")  { sym "@constant.builtin" },
+    sym("@lsp.typemod.function.defaultLibrary")    { sym "@function.builtin" },
+    sym("@lsp.typemod.keyword.async")              { sym "@keyword.coroutine" },
+    sym("@lsp.typemod.keyword.injected")           { Statement },
+    sym("@lsp.typemod.macro.defaultLibrary")       { sym "@function.builtin" },
+    sym("@lsp.typemod.method.defaultLibrary")      { sym "@function.builtin" },
+    sym("@lsp.typemod.operator.injected")          { sym "@operator" },
+    sym("@lsp.typemod.string.injected")            { sym "@string" },
+    sym("@lsp.typemod.struct.defaultLibrary")      { sym "@type.builtin" },
+    sym("@lsp.typemod.type.defaultLibrary")        { sym "@type" },
+    sym("@lsp.typemod.typeAlias.defaultLibrary")   { sym "@type" },
+    sym("@lsp.typemod.variable.callable")          { sym "@function" },
+    sym("@lsp.typemod.variable.defaultLibrary")    { sym "@variable.builtin" },
+    sym("@lsp.typemod.variable.injected")          { sym "@variable" },
+    sym("@lsp.typemod.variable.static")            { sym "@constant" },
 
     diffAdded            { fg = colors.bright_green.sa(6).da(8) },
     diffRemoved          { fg = colors.red },
@@ -331,9 +368,6 @@ local theme = lush(function(injected_functions)
     diffFile             { fg = colors.yellow, gui = "bold" },
     diffLine             { fg = colors.magenta, gui = "bold" },
     diffIndexLine        { fg = colors.yellow },
-
-    sym("@text.diff.add")     { diffAdded },
-    sym("@text.diff.delete")  { diffRemoved },
 
     gitcommitOverflow          { WarningMsg },
     gitcommitHeader            { Title },
