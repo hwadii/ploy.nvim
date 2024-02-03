@@ -232,13 +232,13 @@ local theme = lush(function(injected_functions)
     sym("@type")                         { Type },
     sym("@type.builtin")                 { sym "@type" },
     sym("@type.definition")              { sym "@type" },
-    sym("@type.qualifier")               { sym "@type" },
+    sym("@type.qualifier")               { Keyword },
 
-    sym("@attribute")                    { PreProc },
+    sym("@attribute")                    { Keyword },
     sym("@property")                     { Identifier },
 
     sym("@function")                     { Function },
-    sym("@function.builtin")             { Special },
+    sym("@function.builtin")             { Function },
     sym("@function.call")                { sym "@function" },
     sym("@function.macro")               { PreProc },
 
