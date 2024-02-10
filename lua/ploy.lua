@@ -317,6 +317,11 @@ local theme = lush(function(injected_functions)
     sym("@markup.raw.markdown")          { Type },
     sym("@markup.link.url.markdown")     { SpecialComment },
 
+    sym("@markup.link.vimdoc")           { Constant, gui = "underline" },
+    sym("@markup.raw.block.vimdoc")      { Special },
+    sym("@variable.parameter.vimdoc")    { Type },
+    sym("@label.vimdoc")                 { Type, gui = "bold" },
+
     -- (SP Semantic Token Groups
     sym("@lsp.type.boolean")                       { sym "@boolean" },
     sym("@lsp.type.builtinType")                   { sym "@type.builtin" },
@@ -379,7 +384,7 @@ local theme = lush(function(injected_functions)
     markdownLinkTextDelimiter { Delimiter },
 
     helpHyperTextEntry        { gui = "bold" },
-    helpHyperTextJump         { Constant },
+    helpHyperTextJump         { Constant, gui = "underline" },
     helpSpecial               { Type },
     helpOption                { Constant, gui = "italic" },
 
