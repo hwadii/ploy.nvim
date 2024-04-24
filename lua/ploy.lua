@@ -412,6 +412,7 @@ local theme = lush(function(injected_functions)
 
     typescriptParens            { fg = colors.fg },
 
+    DapStoppedLine      { Visual },
     User1               { Bold, bg = StatusLine.bg }
   }
 end)
