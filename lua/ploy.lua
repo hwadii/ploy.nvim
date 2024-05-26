@@ -76,7 +76,7 @@ local theme = lush(function(injected_functions)
     CurSearch    { IncSearch },
     -- Substitute   { }, -- |:substitute| replacement text highlighting
     MatchParen   { fg = colors.magenta, gui = "bold" }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
-    -- ModeMsg      { }, -- 'showmode' message (e.g., "-- INSERT -- ")
+    ModeMsg      { Normal, gui = "bold" }, -- 'showmode' message (e.g., "-- INSERT -- ")
     -- MsgArea      { }, -- Area for messages and cmdline
     MsgSeparator { VertSplit }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     MoreMsg      { fg = colors.green, gui = "bold" }, -- |more-prompt|
@@ -86,7 +86,7 @@ local theme = lush(function(injected_functions)
     PmenuThumb   { NormalFloat, bg = NormalFloat.bg.li(30) }, -- Popup menu: Thumb of the scrollbar.
     FloatBorder  { NormalFloat },
     Question     { MoreMsg }, -- |hit-enter| prompt and yes/no questions
-    -- QuickFixLine { }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
+    QuickFixLine { CursorLine, gui = "bold" }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
     SpellBad     { fg = colors.red, gui = "undercurl" }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
     SpellCap     { fg = colors.red, gui = "undercurl" }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
     SpellLocal   { fg = colors.red, gui = "undercurl" }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
