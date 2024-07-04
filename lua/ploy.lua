@@ -219,7 +219,7 @@ local theme = lush(function(injected_functions)
     sym("@string.escape")                { Special },
     sym("@string.special")               { Special },
     sym("@string.special.symbol")        { fg = colors.bright_green },
-    sym("@string.special.url")           { sym "@string.special" },
+    sym("@string.special.url")           { gui = "underline" },
     sym("@string.special.path")          { sym "@string.special" },
 
     sym("@character")                    { Constant },
@@ -289,7 +289,7 @@ local theme = lush(function(injected_functions)
     sym("@markup.environment")           { PreProc },
 
     sym("@markup.link")                  { Constant },
-    sym("@markup.link.label")            { Normal },
+    sym("@markup.link.label")            { Normal, gui = "underdashed" },
     sym("@markup.link.url")              { Constant, gui = "underline" },
 
     sym("@markup.raw")                   { Constant },
