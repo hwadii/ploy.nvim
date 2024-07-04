@@ -128,7 +128,7 @@ local theme = lush(function(injected_functions)
     Repeat         { Conditional }, --   for, do, while, etc.
     Label          { Conditional }, --   case, default, etc.
     Operator       { fg = colors.bright_yellow }, --   "sizeof", "+", "*", etc.
-    Keyword        { Conditional }, --   any other keyword
+    Keyword        { fg = colors.blue }, --   any other keyword
     Exception      { Statement }, --   try, catch, throw
 
     PreProc        { Statement }, -- (*) Generic Preprocessor
