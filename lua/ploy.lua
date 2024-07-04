@@ -43,7 +43,7 @@ local theme = lush(function(injected_functions)
     -- See :h highlight-groups
     --
     Normal       { fg = colors.fg, bg = colors.bg }, -- Normal text
-    NormalFloat  { Normal, bg = hsl("#000000").li(2) }, -- Normal text in floating windows.
+    NormalFloat  { Normal, bg = hsl("#000000") }, -- Normal text in floating windows.
     NormalNC     { Normal, bg = Normal.bg.li(2) }, -- normal text in non-current windows
     Conceal      { fg = colors.fg.da(30), gui = "bold, italic" }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
     CursorLine   { bg = colors.bg.li(4) }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
