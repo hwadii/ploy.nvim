@@ -75,7 +75,7 @@ local theme = lush(function(injected_functions)
     IncSearch    { fg = colors.bright_white, bg = colors.yellow.da(60) }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     CurSearch    { IncSearch },
     -- Substitute   { }, -- |:substitute| replacement text highlighting
-    MatchParen   { fg = colors.magenta, gui = "bold" }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+    MatchParen   { ColorColumn }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     ModeMsg      { Normal, gui = "bold" }, -- 'showmode' message (e.g., "-- INSERT -- ")
     -- MsgArea      { }, -- Area for messages and cmdline
     MsgSeparator { VertSplit }, -- Separator for scrolled messages, `msgsep` flag of 'display'
