@@ -3,8 +3,8 @@ local hsl = lush.hsl
 
 local colors = {
   -- Basic
-  bg = hsl("#1a1a19"),
-  fg = hsl("#d1d1d1"),
+  bg = hsl("#0d0d0d"),
+  fg = hsl("#e0e0e0"),
   -- Normal
   black = hsl("#1a1a19"),
   red = hsl("#ff968c"),
