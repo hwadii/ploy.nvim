@@ -10,7 +10,7 @@ local colors = {
   red = hsl("#ff968c"),
   green = hsl("#61957f"),
   yellow = hsl("#ffc591"),
-  blue = hsl("#8db4d4").de(30),
+  blue = hsl("#8db4d4"),
   magenta = hsl("#de9bc8"),
   cyan = hsl("#7bb099"),
   white = hsl("#d1d1d1"),
@@ -54,7 +54,7 @@ local theme = lush(function(injected_functions)
     DiffChange   { bg = colors.blue.da(70) }, -- Diff mode: Changed line |diff.txt|
     DiffDelete   { bg = colors.red.de(60).da(40) }, -- Diff mode: Deleted line |diff.txt|
     DiffText     { bg = colors.blue.da(50) }, -- Diff mode: Changed text within a changed line |diff.txt|
-    NonText      { fg = colors.bg.li(20) }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
+    NonText      { fg = colors.bg.li(30) }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
     EndOfBuffer  { NonText }, -- Filler lines (~) after the end of the buffer. By default, this is highlighted like |hl-NonText|.
     SpecialKey   { NonText, gui = 'italic' }, -- Unprintable characters: text displayed differently from what it really is. But not 'listchars' whitespace. |hl-Whitespace|
     Whitespace   { NonText }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
@@ -111,7 +111,7 @@ local theme = lush(function(injected_functions)
     --
     -- Uncomment and edit if you want more specific syntax highlighting.
 
-    Comment        { fg = colors.bg.li(32), gui = "italic" }, -- Any comment
+    Comment        { fg = colors.bg.li(42), gui = "italic" }, -- Any comment
 
     Constant       { fg = colors.bright_cyan }, -- (*) Any constant
     -- String         {  }, --   A string constant: "this is a string"
