@@ -119,7 +119,7 @@ local theme = lush(function(injected_functions)
     DiffText       { fg = colors.fg_changed, bg = colors.bg_changed_refine }, -- Diff mode: Changed text within a changed line |diff.txt|
     -- EndOfBuffer    { }, -- Filler lines (~) after the end of the buffer. By default, this is highlighted like |hl-NonText|.
     TermCursor     { Cursor }, -- Cursor in a focused terminal
-    -- TermCursorNC   { }, -- Cursor in an unfocused terminal
+    TermCursorNC   { bg = colors.bg_blue_subtle }, -- Cursor in an unfocused terminal
     ErrorMsg       { fg = colors.fg_main, bg = colors.bg_err }, -- Error messages on the command line
     VertSplit      { fg = colors.border }, -- Column separating vertically split windows
     -- Folded         { }, -- Line used for closed folds
@@ -252,11 +252,11 @@ local theme = lush(function(injected_functions)
     -- DiagnosticVirtualTextInfo  { } , -- Used for "Info" diagnostic virtual text.
     -- DiagnosticVirtualTextHint  { } , -- Used for "Hint" diagnostic virtual text.
     -- DiagnosticVirtualTextOk    { } , -- Used for "Ok" diagnostic virtual text.
-    DiagnosticUnderlineError   { fg = colors.fg_main, sp = colors.red, gui = "undercurl" } , -- Used to underline "Error" diagnostics.
-    DiagnosticUnderlineWarn    { fg = colors.fg_main, sp = DiagnosticWarn.fg, gui = "underline" } , -- Used to underline "Warn" diagnostics.
-    DiagnosticUnderlineInfo    { fg = colors.fg_main, sp = DiagnosticInfo.fg, gui = "underline" } , -- Used to underline "Info" diagnostics.
-    DiagnosticUnderlineHint    { fg = colors.fg_main, sp = DiagnosticHint.fg, gui = "underline" } , -- Used to underline "Hint" diagnostics.
-    DiagnosticUnderlineOk      { fg = colors.fg_main, sp = DiagnosticOk.fg, gui = "underline" } ,
+    DiagnosticUnderlineError   { sp = colors.red, gui = "undercurl" } , -- Used to underline "Error" diagnostics.
+    DiagnosticUnderlineWarn    { sp = DiagnosticWarn.fg, gui = "underline" } , -- Used to underline "Warn" diagnostics.
+    DiagnosticUnderlineInfo    { sp = DiagnosticInfo.fg, gui = "underline" } , -- Used to underline "Info" diagnostics.
+    DiagnosticUnderlineHint    { sp = DiagnosticHint.fg, gui = "underline" } , -- Used to underline "Hint" diagnostics.
+    DiagnosticUnderlineOk      { sp = DiagnosticOk.fg, gui = "underline" } ,
     -- DiagnosticFloatingError    { } , -- Used to color "Error" diagnostic messages in diagnostics float. See |vim.diagnostic.open_float()|
     -- DiagnosticFloatingWarn     { } , -- Used to color "Warn" diagnostic messages in diagnostics float.
     -- DiagnosticFloatingInfo     { } , -- Used to color "Info" diagnostic messages in diagnostics float.
@@ -349,14 +349,12 @@ local theme = lush(function(injected_functions)
     markdownLinkText          { Identifier, gui = "underline" },
     markdownLinkTextDelimiter { Delimiter },
 
-    -- helpHyperTextEntry        { gui = "bold" },
-    -- helpHyperTextJump         { Constant, gui = "underline" },
-    -- helpSpecial               { Type },
-    -- helpOption                { Constant, gui = "italic" },
-    --
-    GitSignsAdd                      { fg = colors.fg_added },
-    GitSignsChange                   { fg = colors.fg_changed },
-    GitSignsDelete                   { fg = colors.fg_removed },
+    GitSignsAdd                      { fg = colors.bg_added, bg = colors.bg_added },
+    GitSignsChange                   { fg = colors.bg_changed, bg = colors.bg_changed },
+    GitSignsDelete                   { fg = colors.bg_removed, bg = colors.bg_removed },
+    GitSignsStagedAdd                { fg = colors.bg_added_faint, bg = colors.bg_added_faint },
+    GitSignsStagedChange             { fg = colors.bg_changed_faint, bg = colors.bg_changed_faint },
+    GitSignsStagedRemove             { fg = colors.bg_removed_faint, bg = colors.bg_removed_faint },
 
     TelescopeSelection               { fg = colors.fg_main, bg = colors.bg_completion },
     TelescopeSelectionCaret          { fg = colors.red_warmer },
