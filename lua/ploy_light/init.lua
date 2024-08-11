@@ -343,9 +343,7 @@ local theme = lush(function(injected_functions)
     diffLine             { fg = colors.magenta, gui = "bold" },
     diffIndexLine        { fg = colors.yellow },
 
-    gitcommitOverflow          { WarningMsg },
-    gitcommitHeader            { Title },
-    gitcommitSummary           { Title },
+    sym"@markup.heading.gitcommit" { Normal },
 
     markdownUrl               { Special },
     markdownCode              { Type },
