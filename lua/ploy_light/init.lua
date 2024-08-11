@@ -330,6 +330,9 @@ local theme = lush(function(injected_functions)
     -- sym"@preproc"           { }, -- PreProc
     -- sym"@debug"             { }, -- Debug
     -- sym"@tag"               { }, -- Tag
+    sym"@diff.plus"            { fg = colors.fg_added },
+    sym"@diff.minus"           { fg = colors.fg_removed },
+    sym"@diff.delta"           { fg = colors.fg_changed },
 
     diffAdded            { fg = colors.fg_added },
     diffRemoved          { fg = colors.fg_removed },
