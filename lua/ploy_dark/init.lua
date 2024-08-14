@@ -61,8 +61,8 @@ local theme = lush(function(injected_functions)
     Cursor       { bg = colors.fg.li(20), fg = colors.bg }, -- Character under the cursor
     lCursor      { Cursor, bg = Cursor.bg.da(30) }, -- Character under the cursor when |language-mapping| is used (see 'guicursor')
     CursorIM     { Cursor }, -- Like Cursor, but used when in IME mode |CursorIM|
-    TermCursor   { Cursor }, -- Cursor in a focused terminal
-    TermCursorNC { lCursor }, -- Cursor in an unfocused terminal
+    TermCursor   { fg = Cursor.bg, gui = "reverse" }, -- Cursor in a focused terminal
+    TermCursorNC { fg = lCursor.bg, gui = "reverse" }, -- Cursor in an unfocused terminal
     Error        { fg = colors.red }, -- Any erroneous construct
     ErrorMsg     { Error }, -- Error messages on the command line
     LineNr       { fg = colors.bg.li(30) }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.

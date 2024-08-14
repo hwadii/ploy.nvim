@@ -118,8 +118,8 @@ local theme = lush(function(injected_functions)
     DiffDelete     { fg = colors.fg_removed, bg = colors.bg_removed_faint }, -- Diff mode: Deleted line |diff.txt|
     DiffText       { fg = colors.fg_changed, bg = colors.bg_changed_refine }, -- Diff mode: Changed text within a changed line |diff.txt|
     -- EndOfBuffer    { }, -- Filler lines (~) after the end of the buffer. By default, this is highlighted like |hl-NonText|.
-    TermCursor     { Cursor }, -- Cursor in a focused terminal
-    TermCursorNC   { bg = colors.bg_blue_subtle }, -- Cursor in an unfocused terminal
+    TermCursor     { fg = colors.cursor, gui = "reverse" }, -- Cursor in a focused terminal
+    TermCursorNC   { fg = colors.bg_blue_subtle, gui = "reverse" }, -- Cursor in an unfocused terminal
     ErrorMsg       { fg = colors.fg_main, bg = colors.bg_err }, -- Error messages on the command line
     VertSplit      { fg = colors.border }, -- Column separating vertically split windows
     -- Folded         { }, -- Line used for closed folds
