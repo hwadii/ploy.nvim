@@ -153,7 +153,7 @@ local theme = lush(function(injected_functions)
     PmenuSbar      { Pmenu }, -- Popup menu: Scrollbar.
     PmenuThumb     { bg = colors.bg_alt }, -- Popup menu: Thumb of the scrollbar.
     Question       { fg = colors.blue_warmer }, -- |hit-enter| prompt and yes/no questions
-    QuickFixLine   { fg = colors.fg_main }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
+    QuickFixLine   { CursorLine }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
     Search         { fg = colors.fg_main, bg = colors.bg_blue_intense }, -- Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
     SpecialKey     { fg = colors.fg_alt }, -- Unprintable characters: text displayed differently from what it really is. But not 'listchars' whitespace. |hl-Whitespace|
     SpellBad       { sp = colors.underline_err, gui = "undercurl" }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
